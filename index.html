@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHRIST FOLLOWERS - Sharing the word of God through status videos, Bible verses and inspirational messages.">
+    <meta name="keywords" content="Christian, Bible, Jesus, Faith, Prayer">
+    <meta name="author" content="Kanshi Govada">
+    <title>CHRIST FOLLOWERS</title>
+
+    <style>
+        /* ---------------- GLOBAL ---------------- */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            /*background image*/
+         
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        h2, {
+            text-align: justify;
+        }
+
+        header { 
+            text-align: center; 
+            padding: 30px; 
+            background: black; 
+            position: relative;
+         }
+        
+        nav { background: #222;
+             text-align: center; 
+             position: sticky; 
+             top: 0; 
+             backdrop-filter: blur(10px);
+              z-index: 1000;
+             }
+        nav a { display: inline-block;
+             padding: 15px 20px; 
+             color: white; 
+             text-decoration: none; 
+             font-weight: bold;
+             }
+        nav a:hover { color: gold; }
+
+        main { padding: 40px; text-align: center; flex: 1; }
+
+        footer { background: black; text-align: center; padding: 15px; margin-top: auto; }
+
+        /* ---------------- DAILY VERSE ---------------- */
+        #dailyVerse { margin-top: 40px; }
+        
+        .verse-card {
+            /* CHANGED: Uses local image to prevent security warnings */
+            background: url("./verse-bg.png"), linear-gradient(135deg, #000, #333);
+            background-size: cover;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 20px gold;
+            color: white;
+            filter: brightness(1.2);
+            text-align: center;
+            position: relative; /* Needed for reliable capture */
+        }
+        
+        .verse-card p { margin: 0; word-wrap: break-word; }
+        #verseText { font-size: 18px; line-height: 1.6; animation: fadeIn 1s ease-in-out; }
+
+        button { margin: 10px; padding: 10px 20px; background: gold; border: none; cursor: pointer; font-weight: bold; border-radius: 5px; }
+        button:hover { background: orange; }
+
+        /* ---------------- LIGHT MODE ---------------- */
+        .light { background: white; color: black; }
+        .light header, .light nav, .light footer { background: #f0f0f0; }
+        .light nav a { color: black; }
+        .light h2, .light p { color: #333; }
+        .light .verse-card { color: white; } 
+
+        /* ---------------- ANIMATION ---------------- */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* ---------------- MOBILE ---------------- */
+        @media (max-width: 600px) {
+            h1 { font-size: 22px; }
+            .verse-card { padding: 30px; }
+            main { padding: 20px; }
+        }
+        h2 {
+             color: gold; margin: 40px auto 20px auto; max-width: 800px; line-height: 1.6; font-size: 22px; animation: fadeIn 1s ease-in-out; 
+            }
+        
+        h3 { color: gold; margin: 40px auto 20px auto; max-width: 800px; line-height: 1.6; font-size: 22px; animation: fadeIn 1s ease-in-out; }
+        p { margin: 20px auto; max-width: 800px; line-height: 1.6; font-size: 18px; animation: fadeIn 1s ease-in-out; text-align: center; }
+        
+        header,h1, p { animation: fadeIn 2s ease-in-out;
+                  text-align: center;   }
+        main h2{
+            text-align: center;
+        }
+        h3,p {
+            text-align: justify;
+        }
+        section p {
+            text-align: center;
+        }
+        header p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>✝ CHRIST FOLLOWERS ✝</h1>
+        <p>Spreading Faith, Hope & Love</p>
+        <button onclick="toggleMode()" style="position:absolute; right:20px; top:20px; padding: 5px 10px; font-size: 20px; background: transparent; color: white; border: 1px solid white;">🌙</button>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <h2>PRAISE THE LORD 🙏</h2>
+        <p>Welcome to CHRIST FOLLOWERS, your daily source of inspiration and faith. We share uplifting Bible verses, prayer videos, and messages of hope to strengthen your spiritual journey. Join us in spreading the love of Christ and finding encouragement in every verse.</p>
+
+        <h2>📖 Today's Bible Verse</h2>
+        <section id="dailyVerse">
+            <div class="verse-card">
+                <div id="verseText">Loading verse...</div>
+                <br>
+                <small>✝️ CHRISTFOLLOWER ✝️</small>
+            </div>
+            
+            <p style="font-size: 14px; opacity: 0.8;"><b>తెలుగు అనువాదం త్వరలో జోడించబడుతుంది...</b></p>
+            
+            <div style="margin-top: 20px;">
+                <button onclick="loadVerse()">🔄 Refresh</button>
+                <button onclick="shareVerse()">📤 Share</button>
+                <button onclick="copyVerse()">📋 Copy</button>
+                <button onclick="downloadVerse()">📸 Download</button>
+            </div>
+        </section>
+
+        <h3>⟶ Who Is God? ✝</h3>
+        <p>
+            God is the Creator of heaven and earth, the source of all life,
+            and the foundation of our faith. He is eternal, all-powerful,
+            and full of wisdom beyond human understanding. From the
+            beginning of time, His love has guided humanity and His
+            grace has sustained every generation.
+        </p>
+
+        <h3>⟶ God’s Unconditional Love 🤍</h3>
+        <p>
+            God loves us not because we are perfect,
+            but because He is love itself.
+            His love does not depend on our success,
+            our strength, or our achievements.
+            Even in our weakness and failures,
+            He remains faithful.
+        </p>
+        <p>
+            Through every storm, every struggle,
+            and every season of doubt,
+            God’s love never changes.
+            It comforts us in sorrow,
+            strengthens us in weakness,
+            and gives us hope when everything feels uncertain.
+        </p>
+
+        <h3>⟶ God as Our Strength 💪🏼</h3>
+        <p>
+            When life becomes difficult,
+            God becomes our refuge.
+            When fear tries to control us,
+            God becomes our courage.
+            When the world feels heavy,
+            God becomes our peace.
+        </p>
+        <p>
+            Faith in God does not mean
+            we will never face problems.
+            It means we will never face them alone.
+            His presence walks beside us,
+            guiding each step we take.
+        </p>
+
+        <h3>⟶ God’s Plan for Our Lives</h3>
+        <p>
+            Sometimes we do not understand
+            why things happen the way they do.
+            But God sees the full picture.
+            What feels like a delay to us
+            is often preparation in His plan.
+        </p>
+        <p>
+            He shapes our character,
+            builds our patience,
+            and strengthens our spirit
+            through every experience.
+            Trusting God means believing
+            that His timing is always perfect.
+        </p>
+
+        <h3>⟶ Grace and Forgiveness</h3>
+        <p>
+            God is rich in mercy.
+            No mistake is too great for His forgiveness.
+            When we turn to Him with sincere hearts,
+            He welcomes us with open arms.
+        </p>
+        <p>
+            His grace gives us a fresh start.
+            His mercy gives us new hope.
+            His promises give us confidence
+            for tomorrow.
+        </p>
+
+        <h3>⟶ Walking in Faith</h3>
+        <p>
+            Faith is not just believing in God,
+            it is living with trust in Him every day.
+            It is choosing hope over fear,
+            love over hatred,
+            and patience over anger.
+        </p>
+        <p>
+            Through prayer, worship, and reflection,
+            we grow closer to God
+            and discover the purpose
+            He has placed within us.
+        </p>
+
+        <h3>⟶ God Is Our Light ✨</h3>
+        <p>
+            In the darkest nights of life,
+            God is the light that never fades.
+            He restores broken hearts,
+            heals wounded souls,
+            and reminds us that we are never alone.
+        </p>
+        <p>
+            With God at the center of our lives,
+            we find true peace,
+            lasting joy,
+            and eternal hope.
+        </p>
+    </main>
+
+    <footer>
+        © 2026 CHRIST FOLLOWERS | All Rights Reserved
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        /* ---------------- DARK/LIGHT ---------------- */
+        function toggleMode() { document.body.classList.toggle("light"); }
+
+        /* ---------------- LOAD VERSE ---------------- */
+        function loadVerse() {
+            const books = ["john", "psalms", "proverbs", "romans", "isaiah", "matthew", "luke", "acts"];
+            const randomBook = books[Math.floor(Math.random() * books.length)];
+            const randomChapter = Math.floor(Math.random() * 20) + 1;
+
+            document.getElementById("verseText").innerHTML = "Loading...";
+
+            fetch(`https://bible-api.com/${randomBook}+${randomChapter}:1`)
+            .then(response => response.json())
+            .then(data => {
+                const englishVerse = data.text;
+                const reference = data.reference;
+                document.getElementById("verseText").innerHTML = `
+                    <div class="english">
+                        "${englishVerse}"<br><br>
+                        <strong>— ${reference} —</strong>
+                    </div>`;
+            })
+            .catch(() => {
+                document.getElementById("verseText").innerHTML = "Unable to load verse 🙏 check connection.";
+            });
+        }
+        
+        // Load initial verse
+        loadVerse();
+
+        /* ---------------- SHARE ---------------- */
+        function shareVerse() {
+            const text = document.getElementById("verseText").innerText;
+            if (navigator.share) {
+                navigator.share({ title: "Daily Bible Verse", text: text })
+                .catch(console.error);
+            } else {
+                alert("Sharing is not supported on this browser/device.");
+            }
+        }
+
+        /* ---------------- COPY ---------------- */
+        function copyVerse() {
+            const text = document.getElementById("verseText").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Verse copied ✝️");
+            }).catch(() => {
+                alert("Failed to copy");
+            });
+        }
+
+        /* ---------------- DOWNLOAD (FIXED) ---------------- */
+        function downloadVerse() {
+            const element = document.querySelector(".verse-card");
+            
+            html2canvas(element, { 
+                scale: 2, 
+                useCORS: true, 
+                backgroundColor: null,
+                allowTaint: true
+            }).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+                const link = document.createElement("a");
+                link.href = imgData;
+                link.download = "daily-verse.png";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }).catch(err => { 
+                console.error("Download Error:", err);
+                alert("Download failed. Make sure you are using a modern browser."); 
+            });
+        }
+    </script>
+
+</body>
+</html>

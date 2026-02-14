@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHRIST FOLLOWERS - Sharing the word of God.">
+    <meta name="keywords" content="Christian, Bible, Jesus, Faith">
+    <meta name="author" content="Kanshi Govada">
+    <title>About - CHRIST FOLLOWERS</title>
+
+    <style>
+        /* ---------------- GLOBAL ---------------- */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            /* CHANGED: Uses local image to prevent security warnings */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("./bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { text-align: center; padding: 30px; background: black; }
+        
+        nav { background: #222; text-align: center; position: sticky; top: 0; backdrop-filter: blur(10px); z-index: 1000; }
+        nav a { display: inline-block; padding: 15px 20px; color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: gold; }
+
+        main { padding: 40px; text-align: center; flex: 1; }
+        
+        section { max-width: 800px; margin: 0 auto; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 15px; }
+
+        h2, h3 { color: gold; margin-top: 30px; }
+        
+        p { line-height: 1.6; margin: 20px 0; font-size: 18px; text-align: justify; }
+
+        footer { background: black; text-align: center; padding: 15px; margin-top: auto; }
+
+        /* ---------------- LIGHT MODE ---------------- */
+        .light { background: white; color: black; }
+        .light header, .light nav, .light footer { background: #f0f0f0; }
+        .light nav a { color: black; }
+        .light h2, .light h3 { color: #d4a017; } /* Darker gold for visibility */
+        .light section { background: rgba(255,255,255,0.8); color: black; }
+        
+        /* ---------------- ANIMATION ---------------- */
+        main { animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ---------------- MOBILE ---------------- */
+        @media (max-width: 600px) {
+            h1 { font-size: 22px; }
+            p { text-align: left; }
+        }
+        p{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>✝ CHRIST FOLLOWERS ✝</h1>
+    <p>Spreading Faith, Hope & Love</p>
+    <button onclick="toggleMode()" style="position:absolute; right:20px; top:20px; background:none; border:none; font-size:20px; cursor:pointer;">🌙</button>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+    <section>
+        <h2>About CHRIST FOLLOWERS ✝</h2>
+        <p>
+            CHRIST FOLLOWERS is a faith-centered platform created to spread
+            the message of Jesus Christ through digital media. Our mission
+            is simple — to inspire hearts, strengthen faith, and remind the
+            world that God’s love is eternal and unchanging.
+        </p>
+        <p>
+            In today’s fast-moving world, people often feel lost, stressed,
+            and disconnected. Through Bible verses, Christian status videos,
+            daily encouragement, and spiritual reflections, we aim to bring
+            peace, hope, and purpose back into everyday life.
+        </p>
+
+        <h3>Our Mission</h3>
+        <p>
+            Our mission is to share the Gospel in a simple and modern way.
+            We believe that even a single verse can change someone’s day,
+            heal a broken heart, or give strength during difficult times.
+        </p>
+
+        <h3>What We Share</h3>
+        <p style="text-align: center;">
+            ✝ Daily Bible Verses<br>
+            ✝ Inspirational Christian Status Videos<br>
+            ✝ Faith-Based Messages<br>
+            ✝ Prayer Encouragement<br>
+            ✝ Spiritual Motivation
+        </p>
+
+        <h3>Our Vision</h3>
+        <p>
+            We envision a digital space where faith grows stronger,
+            love becomes greater, and hope shines brighter.
+            CHRIST FOLLOWERS is not just a page — it is a community
+            built on faith, unity, and devotion to God.
+        </p>
+    </section>
+
+    <div style="margin-top: 40px;">
+        <p style="text-align: center;">Follow us for daily inspiration:</p>
+        <a href="https://www.instagram.com/__christ_status__/" target="_blank" style="text-decoration:none; color:#E1306C; font-weight:bold; font-size: 18px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:24px; vertical-align:middle; margin-right:5px;">
+            __christ_status__
+        </a>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 CHRIST FOLLOWERS | All Rights Reserved
+</footer>
+
+<script>
+    function toggleMode() { document.body.classList.toggle("light"); }
+</script>
+
+</body>
+</html>
